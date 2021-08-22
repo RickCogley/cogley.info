@@ -1,0 +1,51 @@
+{
+  "name": "cogley-info-1",
+  "hooks": {
+    "clean": [
+      "up prune -s production -r 10"
+    ]
+  },
+  "stages": {
+    "staging": {
+      "domain": "staging.cogley.info"
+    },
+    "production": {
+      "domain": "cogley.info",
+      "lambda": {
+        "warm": true,
+        "endpoint": "regional",
+        "memory": 1024,
+        "accelerate": true
+      }
+    }
+  },
+  "type": "static",
+  "static":{
+    "dir": "html"
+  },
+  "headers": {
+    "/*": {
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "X-Frame-Options": "SAMEORIGIN",
+      "Referrer-Policy": "strict-origin",
+      "X-Content-Type-Options": "nosniff",
+      "X-Powered-By": "Apex"
+    }
+  },
+  "tags": {
+    "Owner": "eSolia",
+    "AppName": "CogleyInfo1",
+    "PoweredBy": "ApexUp"
+  },
+  "profile": "apex-up-esolia",
+  "regions": [
+    "ap-northeast-1"
+  ],
+  "error_pages": {
+    "enable": true,
+    "variables": {
+      "support_email": "rick@cogley.jp",
+      "color": "#228ae6"
+    }
+  }
+}
