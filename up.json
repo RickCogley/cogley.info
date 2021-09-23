@@ -13,7 +13,6 @@
       "domain": "cogley.info",
       "lambda": {
         "warm": true,
-        "endpoint": "regional",
         "memory": 1024,
         "accelerate": true
       }
