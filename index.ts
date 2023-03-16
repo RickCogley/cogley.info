@@ -15,7 +15,7 @@ app.use(async (ctx, next) => {
   await next();
   const ms = Date.now() - start;
   ctx.response.headers.set("X-Response-Time", `${ms}ms`);
-  ctx.response.headers.set("X-Custom-Header", "Rawr eSolia");
+  ctx.response.headers.set("X-Custom-Header", "Rawr");
   ctx.response.headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
   ctx.response.headers.set("X-Frame-Options", "SAMEORIGIN");
   ctx.response.headers.set("Referrer-Policy", "strict-origin");
